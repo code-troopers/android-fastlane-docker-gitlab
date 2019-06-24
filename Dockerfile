@@ -18,3 +18,6 @@ RUN apt-get --quiet update --yes \
     && yes | android-sdk-linux/tools/bin/sdkmanager --licenses \
     && gem install fastlane -NV\
     && rm -rf /var/lib/apt/lists/*
+
+ENV ANDROID_HOME=/root/android-sdk-linux
+ENV PATH=$PATH:/root/android-sdk-linux/platform-tools/ 
