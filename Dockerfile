@@ -1,4 +1,4 @@
-FROM openjdk:8u212-b04-jdk-stretch
+FROM openjdk:8u222-b04-jdk-stretch
 
 LABEL maintainer "Cedric Gatay <c.gatay@code-troopers.com>"
 
