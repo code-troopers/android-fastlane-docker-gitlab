@@ -21,6 +21,7 @@ RUN gem install fastlane -NV
 RUN gem install bundler -NVf 
 
 RUN apt-get --quiet update --yes \
+    && apt upgrade -y \
     && apt-get --quiet install --yes wget tar unzip lib32stdc++6 lib32z1 imagemagick make g++ less \
     && wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip \
     && unzip -d android-sdk-linux android-sdk.zip \
