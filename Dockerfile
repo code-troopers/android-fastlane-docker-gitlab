@@ -1,4 +1,4 @@
-FROM azul/zulu-openjdk-debian:11.0.11
+FROM azul/zulu-openjdk-debian:13
 
 LABEL maintainer "Cedric Gatay <c.gatay@code-troopers.com>"
 
