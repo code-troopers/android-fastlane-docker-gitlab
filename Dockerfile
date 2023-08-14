@@ -2,9 +2,9 @@ FROM azul/zulu-openjdk-debian:13
 
 LABEL maintainer "Cedric Gatay <c.gatay@code-troopers.com>"
 
-ARG ANDROID_SDK_TOOLS="7583922"
-ARG ANDROID_COMPILE_SDK="30"
-ARG ANDROID_BUILD_TOOLS="32.0.0"
+ARG ANDROID_SDK_TOOLS="9477386"
+ARG ANDROID_COMPILE_SDK="33"
+ARG ANDROID_BUILD_TOOLS="33.0.1"
 
 RUN apt-get --quiet update --yes \
     && apt upgrade -y \
@@ -38,8 +38,10 @@ RUN gem install fastlane -NV
 
 RUN gem install bundler -NVf 
 # Fix for corrupted build tools install missing dx / dx.jar
-RUN cp android-sdk-linux/build-tools/32.0.0/d8 android-sdk-linux/build-tools/32.0.0/dx \
-   && cp android-sdk-linux/build-tools/32.0.0/lib/d8.jar android-sdk-linux/build-tools/32.0.0/lib/dx.jar
+RUN cp android-sdk-linux/build-tools/33.0.1/d8 android-sdk-linux/build-tools/33.0.1/dx \
+   && cp android-sdk-linux/build-tools/33.0.1/lib/d8.jar android-sdk-linux/build-tools/33.0.1/lib/dx.jar
 
 ENV ANDROID_HOME=/android-sdk-linux
 ENV PATH=$PATH:/android-sdk-linux/platform-tools/ 
+
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && apt-get install -y nodejs
